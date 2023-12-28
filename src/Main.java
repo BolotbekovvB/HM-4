@@ -1,17 +1,55 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import com.sun.source.doctree.IndexTree;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> a = new ArrayList<>();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("Введите слово: ");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        for (int i = 0; i < 5; i++) {
+            a.add(scanner.nextLine());
         }
+        System.out.println(a);
+
+        ArrayList<String> b = new ArrayList<>();
+
+        System.out.println("Ведите слово: ");
+
+        for (int i = 0; i < 5; i++) {
+            b.add(scanner.nextLine());
+        }
+
+        System.out.println(b);
+
+        Collections.reverse(b);
+
+        ArrayList<String> c = new ArrayList<>();
+
+        Integer x = 0;
+
+        while(c.size() < a.size() + b.size()){
+            c.add(a.get(x));
+            c.add(b.get(x));
+            x++;
+        }
+
+        System.out.println(c);
+
+        c.add(a.get(0));
+        c.add(b.get(1));
+        Collections.sort(c, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.length() - s2.length() ;
+            }
+        });
+
+        System.out.println(c);
     }
 }
